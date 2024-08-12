@@ -1,0 +1,147 @@
+{
+    "Rooms": [
+      { "id": 1,
+       "title": "Luxury Room",
+       "description":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.",
+       "viewId": 1 ,
+       "size": "45 m2" ,
+       "imgUrl":"",
+       "bed":3,
+       "isBooked":false,
+       "rating":5,
+       "max":3,
+       "favorite":false
+    },
+    { "id": 2,
+    "title": "Deluxe Room",
+    "description":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.",
+    "viewId": 1 ,
+    "size": "45 m2" ,
+    "imgUrl":"",
+    "bed":3,
+    "isBooked":false,
+    "rating":5,
+    "max":3,
+    "favorite":false
+    }, 
+    { "id": 3,
+    "title": "Family Room",
+    "description":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.",
+    "viewId": 1 ,
+    "size": "45 m2" ,
+    "imgUrl":"",
+    "bed":2,
+    "isBooked":false,
+    "rating":4,
+    "max":5,
+    "favorite":false
+    },
+    { "id": 4,
+    "title": "Luxury ",
+    "description":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.",
+    "viewId": 2 ,
+    "size": "45 m2" ,
+    "imgUrl":"",
+    "bed":10,
+    "isBooked":false,
+    "rating":5,
+    "max":3
+    },
+    { "id":5 ,
+    "title": "Deluxe ",
+    "description":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.",
+    "viewId": 2 ,
+    "size": "45 m2" ,
+    "imgUrl":"",
+    "bed":4,
+    "isBooked":false,
+    "rating":5,
+    "max":3,
+    "favorite":false
+    }, 
+    { 
+    "id": 6,
+    "title": "Family ",
+    "description":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.",
+    "viewId": 2 ,
+    "size": "45 m2" ,
+    "imgUrl":"",
+    "bed":10,
+    "isBooked":false,
+    "rating":4,
+    "max":5,
+    "favorite":false
+    }
+    ],
+    "views": [
+      { "id": 1, "title": "Sea View" },
+      { "id": 2, "title": "garden View"}
+    ],
+    "Restaurant": [
+    {
+    "id": 1,
+    "title": "Grilled Beef with potatoes ",
+    "imgUrl":"",
+    "love":false,
+    "rating":4,
+    "price":20
+    },
+    {
+    "id": 2,
+    "title": "Grilled Beef with potatoes",
+    "imgUrl":"",
+    "love":false,
+    "rating":4,
+    "price":29
+    },
+    {
+    "id": 3,
+    "title": "Grilled Beef with potatoes",
+    "imgUrl":"",
+    "love":false,
+    "rating":4,
+    "price":29
+    },
+    {
+    "id": 4,
+    "title": "grilled Beef with potatoes",
+    "imgUrl":"",
+    "love":false,
+    "rating":4,
+    "price":29
+    },
+    {
+    "id": 5,
+    "title": "Grilled Beef with potatoes",
+    "imgUrl":"",
+    "love":false,
+    "rating":4,
+    "price":29
+    },
+    {
+    "id": 6,
+    "title": "Grilled Beef with potatoes",
+    "imgUrl":"",
+    "love":false,
+    "rating":4,
+    "price":29
+    },
+    {
+    "id": 7,
+    "title": "Ultimate Overload",
+    "imgUrl":"",
+    "love":false,
+    "rating":4,
+    "price":29
+    },
+    {
+    "id": 8,
+    "title": "Ham & Pineapple",
+    "imgUrl":"",
+    "love":false,
+    "rating":4,
+    "price":29
+    }
+
+    ]
+  }
