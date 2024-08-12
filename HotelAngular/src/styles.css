@@ -1,1 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --primary-color: #c5a880;
+    --secondary-color: #222222;
+    --background-color: #f8f8f8;
+    --primary-hover-color: #a38c6d;
+    --head-font-family: "Old Standard TT", Arial, sans-serif;
+    --xxl-font-size: 80px;
+    --xl-font-size: 64px;
+    --l-font-size: 30px;
+    --m-font-size: 24px;
+    --s-font-size: 20px;
+    --xs-font-size: 16px;
+    --xxs-font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --xxl-font-size: 75px;
+        --xl-font-size: 60px;
+        --l-font-size: 26px;
+        --m-font-size: 20px;
+        --s-font-size: 18px;
+        --xs-font-size: 13px;
+        --xxs-font-size: 11px;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --xxl-font-size: 70px;
+        --xl-font-size: 55px;
+        --l-font-size: 22px;
+        --m-font-size: 18px;
+        --s-font-size: 16px;
+        --xs-font-size: 11px;
+        --xxs-font-size: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --xxl-font-size: 65px;
+        --xl-font-size: 56px;
+        --l-font-size: 24px;
+        --m-font-size: 18px;
+        --s-font-size: 16px;
+        --xs-font-size: 10px;
+        --xxs-font-size: 9px;
+    }
+}
+@media (max-width: 576px) {
+    :root {
+        --xxl-font-size: 60px;
+        --xl-font-size: 50px;
+        --l-font-size: 22px;
+        --m-font-size: 16px;
+        --s-font-size: 14px;
+        --xs-font-size: 9px;
+        --xxs-font-size: 8px;
+    }
+}
+
+body {
+    font-family: "Nunito", Arial, sans-serif;
+}
