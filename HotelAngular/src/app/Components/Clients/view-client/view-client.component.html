@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row m-4">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let client of clients">
         <div class="our-team">
           <div class="picture">
             <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
           </div>
           <div class="team-content">
-            <h3 class="name">Michele Miller</h3>
-            <h4 class="title"><i class="fa-solid fa-envelope"></i> </h4>
-            <h4 class="title"><i class="fa-solid fa-phone"></i> </h4>
-            <h4 class="title"><i class="fa-solid fa-location-dot"></i> </h4>
+            <h3 class="name"> {{client.client_name}}</h3>
+            <h4 class="title"><i class="fa-solid fa-envelope"></i>  {{client.client_email}}</h4>
+            <h4 class="title"><i class="fa-solid fa-phone"></i> {{client.client_phone}} </h4>
+            <h4 class="title"><i class="fa-solid fa-location-dot"></i> {{client.client_address}}</h4>
          
           </div>
           <ul class="social">
