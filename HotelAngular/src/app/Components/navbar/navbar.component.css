@@ -1,0 +1,13 @@
+
+.navbar {
+    background-color: transparent;
+    color: white;
+}
+@media (max-width: 992px) {
+    .navbar {
+        background-color: var(--secondary-color);
+    }
+}
+.navbar .nav-link {
+    color: white;
+}
