@@ -1,6 +1,7 @@
 
 .navbar {
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: var(--secondary-color);
     color: white;
 }
 @media (max-width: 992px) {
