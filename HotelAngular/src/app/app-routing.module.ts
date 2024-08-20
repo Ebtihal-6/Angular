@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddClientComponent } from './Components/Clients/add-client/add-client.component';
 import { ViewClientComponent } from './Components/Clients/view-client/view-client.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { LoginComponent } from './Components/login/login.component';
 
 const routes: Routes = [
+  {path: "Login", component: LoginComponent},
+  {path: "", redirectTo: "Login", pathMatch: 'full'},
   {path:'', component: LayoutComponent, children: [ // this layout component have header, footer, sidebar,..... implement in it/ and then the routing make children open with this constant layout
     {path: "AddClient", component:AddClientComponent},
-    {path: "Clients", component: ViewClientComponent}
-  ]}
+    {path: "Clients", component: ViewClientComponent},
+  ]},
+  {path: "**", component: LoginComponent},
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row m-4">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let client of clients">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3"  *ngFor="let client of clients">
         <div class="our-team">
           <div class="picture">
             <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
@@ -20,3 +20,51 @@
          
     </div>
   </div>
+<!-- 
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+  
+  <table *ngIf="clients.length > 0" class="clients-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Client No</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Resident</th>
+        <th>Trade No</th>
+        <th>Description</th>
+        <th>Installment Client</th>
+        <th>Category ID</th>
+        <th>Client Type</th>
+        <th>Nation ID</th>
+        <th>Is Blocked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.Id }}</td>
+        <td>{{ client.client_no }}</td>
+        <td>{{ client.client_name }}</td>
+        <td>{{ client.client_phone }}</td>
+        <td>{{ client.client_email }}</td>
+        <td>{{ client.client_address }}</td>
+        <td>{{ client.client_resident }}</td>
+        <td>{{ client.trade_no }}</td>
+        <td>{{ client.description }}</td>
+        <td>{{ client.Is_InstallmentClient ? 'Yes' : 'No' }}</td>
+        <td>{{ client.CategoryId }}</td>
+        <td>{{ client.ClientType }}</td>
+        <td>{{ client.NationId }}</td>
+        <td>{{ client.IsBlocked ? 'Yes' : 'No' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div *ngIf="clients.length === 0 && !errorMessage">
+    No clients available.
+  </div>
+   -->

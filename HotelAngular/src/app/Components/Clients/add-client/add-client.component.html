@@ -1,28 +1,161 @@
-<form>
+
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="client-form">
+
+    <!-- Client Basic Information -->
+    <div class="form-group">
+      <label for="client_no">Client No</label>
+      <input id="client_no" formControlName="client_no" type="number" class="form-control" />
+      <div *ngIf="clientForm.get('client_no')?.invalid && (clientForm.get('client_no')?.dirty || clientForm.get('client_no')?.touched)" class="error">
+        Client Number is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="client_name">Client Name</label>
+      <input id="client_name" formControlName="client_name" type="text" class="form-control" />
+      <div *ngIf="clientForm.get('client_name')?.invalid && (clientForm.get('client_name')?.dirty || clientForm.get('client_name')?.touched)" class="error">
+        Client Name is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="client_phone">Client Phone</label>
+      <input id="client_phone" formControlName="client_phone" type="text" class="form-control" />
+      <div *ngIf="clientForm.get('client_phone')?.invalid && (clientForm.get('client_phone')?.dirty || clientForm.get('client_phone')?.touched)" class="error">
+        Client Phone is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="client_email">Client Email</label>
+      <input id="client_email" formControlName="client_email" type="email" class="form-control" />
+      <div *ngIf="clientForm.get('client_email')?.invalid && (clientForm.get('client_email')?.dirty || clientForm.get('client_email')?.touched)" class="error">
+        Valid Client Email is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="client_address">Client Address</label>
+      <input id="client_address" formControlName="client_address" type="text" class="form-control" />
+    </div>
+  
+    <div class="form-group">
+      <label for="client_resident">Client Resident</label>
+      <input id="client_resident" formControlName="client_resident" type="text" class="form-control" />
+    </div>
+  
+    <!-- Toggle Switches -->
+    <div class="form-group form-check">
+      <input id="Is_customer" formControlName="Is_customer" type="checkbox" class="form-check-input" />
+      <label for="Is_customer" class="form-check-label">Is Customer</label>
+    </div>
+  
+    <div class="form-group form-check">
+      <input id="Is_vendor" formControlName="Is_vendor" type="checkbox" class="form-check-input" />
+      <label for="Is_vendor" class="form-check-label">Is Vendor</label>
+    </div>
+  
+    <!-- Branches -->
+    <div formArrayName="branches">
+      <div *ngFor="let branch of branches.controls; let i = index" [formGroupName]="i" class="branch-form-group">
+        <h3>Branch {{i + 1}}</h3>
+        <div class="form-group">
+          <label for="branch_no">Branch No</label>
+          <input id="branch_no" formControlName="branch_no" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="branch_name">Branch Name</label>
+          <input id="branch_name" formControlName="branch_name" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="branch_phone">Branch Phone</label>
+          <input id="branch_phone" formControlName="branch_phone" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="branch_mobile">Branch Mobile</label>
+          <input id="branch_mobile" formControlName="branch_mobile" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="branch_manager">Branch Manager</label>
+          <input id="branch_manager" formControlName="branch_manager" type="text" class="form-control" />
+        </div>
+  
+        <button type="button" (click)="removeBranch(i)" class="btn btn-danger">Remove Branch</button>
+      </div>
+    </div>
+    <button type="button" (click)="addBranch()" class="btn btn-primary">Add Branch</button>
+  
+    <!-- Cars -->
+    <div formArrayName="cars">
+      <div *ngFor="let car of cars.controls; let i = index" [formGroupName]="i" class="car-form-group">
+        <h3>Car {{i + 1}}</h3>
+        <div class="form-group">
+          <label for="No">Car No</label>
+          <input id="No" formControlName="No" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="CarName">Car Name</label>
+          <input id="CarName" formControlName="CarName" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="ChassisNo">Chassis No</label>
+          <input id="ChassisNo" formControlName="ChassisNo" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="PlateNo">Plate No</label>
+          <input id="PlateNo" formControlName="PlateNo" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="Kilometres">Kilometres</label>
+          <input id="Kilometres" formControlName="Kilometres" type="number" class="form-control" />
+        </div>
+  
+        <button type="button" (click)="removeCar(i)" class="btn btn-danger">Remove Car</button>
+      </div>
+    </div>
+    <button type="button" (click)="addCar()" class="btn btn-primary">Add Car</button>
+  
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-success" [disabled]="clientForm.invalid">Submit</button>
+    </div>
+  
+  </form>
+  
+  
+<!-- <form (ngSubmit)="addClient()">
     <div class="row mb-4 mt-4">
         <div class="col">
             <div data-mdb-input-init class="form-outline">
-            <input type="text" id="form6Example1" class="form-control" />
+            <input type="text" name="cName" id="form6Example1" class="form-control" [(ngModel)]="newClient.client_name"/>
             <label class="form-label" for="form6Example1">Name</label>
             </div>
         </div>
         <div class="col">
         <div data-mdb-input-init class="form-outline mb-4">
-            <input type="number" id="form6Example6" class="form-control" />
+            <input type="number" name="cPhone" id="form6Example6" class="form-control" [(ngModel)]="newClient.client_phone"/>
             <label class="form-label" for="form6Example6">Phone Number</label>
         </div>
         </div>
     </div>
 
     <div data-mdb-input-init class="form-outline mb-4">
-        <input type="email" id="form6Example5" class="form-control" />
+        <input type="email" name="cEmail" id="form6Example5" class="form-control" [(ngModel)]="newClient.client_email"/>
         <label class="form-label" for="form6Example5">Email</label>
     </div>
 
     <div data-mdb-input-init class="form-outline mb-4">
-        <input type="text" id="form6Example4" class="form-control" />
+        <input type="text" name="cAddress" id="form6Example4" class="form-control" [(ngModel)]="newClient.client_address"/>
         <label class="form-label" for="form6Example4">Address</label>
     </div>
 
-    <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">Add Client</button>
-</form>
+    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Add Client</button>
+</form> -->
