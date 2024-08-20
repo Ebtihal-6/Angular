@@ -40,6 +40,10 @@ export class LoginComponent implements OnInit {
           if (res && res.token) {
             alert('Login is Successful!')
             this.loginService.saveToken(res.token);
+            this.loginService.setSessionId(res.session.Id);
+            this.loginService.setBranchId(res.branch_id);
+            this.loginService.setUserId(res.Id);
+            // console.log(res.session.Id);
             this.router.navigateByUrl('/Clients')
             
           } else {
@@ -73,6 +77,6 @@ export class LoginComponent implements OnInit {
       const bootstrapModal = bootstrap.Modal.getInstance(modalElement);
       bootstrapModal.hide();
     }
-  }
+  } 
 
 }

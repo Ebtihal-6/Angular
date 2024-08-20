@@ -22,8 +22,8 @@ export interface AddClient {
     GuarantorAddress: string
     NationId: string
     IsBlocked: boolean
-    branches: Branch[]
-    cars: Car[]
+    branches?: Branch[]
+    cars?: Car[]
   }
   
   export interface Branch {

@@ -7,6 +7,9 @@ export const environment = {
   baseApi:"http://192.168.1.150:7000/api",
   AuthLoginApi: "/Auth/login",
   clientApi: "/clients",
+  expenseApi: "/expences",
+  sessionApi: "/sessions",
+  StartSessionApi: "/startSession",
+  EndSessionApi: "/endSession",
+
 };
-
-

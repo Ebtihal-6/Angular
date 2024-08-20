@@ -1,0 +1,10 @@
+form{
+    margin: 10%;
+  
+}
+form div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   margin-bottom: 5%;
+}

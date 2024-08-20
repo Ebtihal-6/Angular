@@ -23,6 +23,33 @@ export class AuthLoginService {
   }
   getToken():string |null
   {
-   return localStorage.getItem('Token');
+    return localStorage.getItem('Token');
+  }
+
+  setSessionId(sessionId: string) {
+    localStorage.setItem('sessionID', sessionId);
+  }
+
+  getSessionId(): string | null {
+    return localStorage.getItem('sessionID');
+  }
+
+  clearSessionId() {
+    localStorage.removeItem('sessionID');
+  }
+  setUserId(UserId: string) {
+    localStorage.setItem('UserId', UserId);
+  }
+
+  getUserId(): string | null {
+    return localStorage.getItem('UserId');
+  }
+  setBranchId(branchId: number): void {
+    localStorage.setItem('BranchId', branchId.toString());
+  }
+
+  getBranchId(): number | null {
+    const branchId = localStorage.getItem('BranchId');
+    return branchId !== null ? Number(branchId) : null;
   }
 }

@@ -1,136 +1,174 @@
 
-<form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="client-form">
 
-    <!-- Client Basic Information -->
-    <div class="form-group">
-      <label for="client_no">Client No</label>
-      <input id="client_no" formControlName="client_no" type="number" class="form-control" />
-      <div *ngIf="clientForm.get('client_no')?.invalid && (clientForm.get('client_no')?.dirty || clientForm.get('client_no')?.touched)" class="error">
-        Client Number is required.
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+  <!-- Basic Client Information -->
+  <div>
+    <label for="client_no">Client No</label>
+    <input id="client_no" formControlName="client_no" type="number" />
+  </div>
+
+  <div>
+    <label for="client_name">Client Name</label>
+    <input id="client_name" formControlName="client_name" />
+  </div>
+
+  <div>
+    <label for="client_phone">Client Phone</label>
+    <input id="client_phone" formControlName="client_phone" />
+  </div>
+
+  <div>
+    <label for="client_email">Client Email</label>
+    <input id="client_email" formControlName="client_email" />
+  </div>
+
+  <div>
+    <label for="client_address">Client Address</label>
+    <input id="client_address" formControlName="client_address" />
+  </div>
+
+  <div>
+    <label for="client_resident">Client Resident</label>
+    <input id="client_resident" formControlName="client_resident" />
+  </div>
+
+  <!-- Branch Selection -->
+  <div>
+    <label for="branch_id">Branch</label>
+    <select id="branch_id" formControlName="branch_id">
+      <option *ngFor="let branch of branches" [value]="branch.Id">{{ branch.branch_name }}</option>
+    </select>
+  </div>
+
+  <!-- Booleans -->
+  <div>
+    <label for="Is_customer">Is Customer</label>
+    <input type="checkbox" id="Is_customer" formControlName="Is_customer" />
+  </div>
+
+  <div>
+    <label for="Is_vendor">Is Vendor</label>
+    <input type="checkbox" id="Is_vendor" formControlName="Is_vendor" />
+  </div>
+
+  <div>
+    <label for="Is_InstallmentClient">Is Installment Client</label>
+    <input type="checkbox" id="Is_InstallmentClient" formControlName="Is_InstallmentClient" />
+  </div>
+
+  <div>
+    <label for="IsBlocked">Is Blocked</label>
+    <input type="checkbox" id="IsBlocked" formControlName="IsBlocked" />
+  </div>
+
+  <!-- Additional Fields -->
+  <div>
+    <label for="trade_no">Trade No</label>
+    <input id="trade_no" formControlName="trade_no" />
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+
+  <div>
+    <label for="OpenedCreditor">Opened Creditor</label>
+    <input id="OpenedCreditor" formControlName="OpenedCreditor" type="number" />
+  </div>
+
+  <div>
+    <label for="OpenedDepitor">Opened Depitor</label>
+    <input id="OpenedDepitor" formControlName="OpenedDepitor" type="number" />
+  </div>
+
+  <div>
+    <label for="DiscountPercentPerItem">Discount Percent Per Item</label>
+    <input id="DiscountPercentPerItem" formControlName="DiscountPercentPerItem" type="number" />
+  </div>
+
+  <div>
+    <label for="DiscountPercentPerBill">Discount Percent Per Bill</label>
+    <input id="DiscountPercentPerBill" formControlName="DiscountPercentPerBill" type="number" />
+  </div>
+
+  <div>
+    <label for="CategoryId">Category Id</label>
+    <input id="CategoryId" formControlName="CategoryId" type="number" />
+  </div>
+
+  <div>
+    <label for="ClientType">Client Type</label>
+    <input id="ClientType" formControlName="ClientType" type="number" />
+  </div>
+
+  <div>
+    <label for="GuarantorName">Guarantor Name</label>
+    <input id="GuarantorName" formControlName="GuarantorName" />
+  </div>
+
+  <div>
+    <label for="GuarantorNationId">Guarantor Nation ID</label>
+    <input id="GuarantorNationId" formControlName="GuarantorNationId" />
+  </div>
+
+  <div>
+    <label for="GuarantorAddress">Guarantor Address</label>
+    <input id="GuarantorAddress" formControlName="GuarantorAddress" />
+  </div>
+
+  <div>
+    <label for="NationId">Nation ID</label>
+    <input id="NationId" formControlName="NationId" />
+  </div>
+
+  <!-- Branches (Array Input) -->
+  <div formArrayName="branches">
+    <div *ngFor="let branch of branchesArray.controls; let i = index">
+      <div [formGroupName]="i">
+        <label for="branch_no_{{i}}">Branch No</label>
+        <input id="branch_no_{{i}}" formControlName="branch_no" type="number" />
+
+        <label for="branch_name_{{i}}">Branch Name</label>
+        <input id="branch_name_{{i}}" formControlName="branch_name" />
+
+        <label for="branch_phone_{{i}}">Branch Phone</label>
+        <input id="branch_phone_{{i}}" formControlName="branch_phone" />
+
+        <label for="branch_mobile_{{i}}">Branch Mobile</label>
+        <input id="branch_mobile_{{i}}" formControlName="branch_mobile" />
+
+        <label for="branch_manager_{{i}}">Branch Manager</label>
+        <input id="branch_manager_{{i}}" formControlName="branch_manager" />
       </div>
     </div>
-  
-    <div class="form-group">
-      <label for="client_name">Client Name</label>
-      <input id="client_name" formControlName="client_name" type="text" class="form-control" />
-      <div *ngIf="clientForm.get('client_name')?.invalid && (clientForm.get('client_name')?.dirty || clientForm.get('client_name')?.touched)" class="error">
-        Client Name is required.
+  </div>
+
+  <!-- Cars (Array Input) -->
+  <div formArrayName="cars">
+    <div *ngFor="let car of carsArray.controls; let i = index">
+      <div [formGroupName]="i">
+        <label for="car_no_{{i}}">Car No</label>
+        <input id="car_no_{{i}}" formControlName="No" type="number" />
+
+        <label for="car_name_{{i}}">Car Name</label>
+        <input id="car_name_{{i}}" formControlName="CarName" />
+
+        <label for="chassis_no_{{i}}">Chassis No</label>
+        <input id="chassis_no_{{i}}" formControlName="ChassisNo" />
+
+        <label for="plate_no_{{i}}">Plate No</label>
+        <input id="plate_no_{{i}}" formControlName="PlateNo" />
+
+        <label for="kilometres_{{i}}">Kilometres</label>
+        <input id="kilometres_{{i}}" formControlName="Kilometres" type="number" />
       </div>
     </div>
-  
-    <div class="form-group">
-      <label for="client_phone">Client Phone</label>
-      <input id="client_phone" formControlName="client_phone" type="text" class="form-control" />
-      <div *ngIf="clientForm.get('client_phone')?.invalid && (clientForm.get('client_phone')?.dirty || clientForm.get('client_phone')?.touched)" class="error">
-        Client Phone is required.
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="client_email">Client Email</label>
-      <input id="client_email" formControlName="client_email" type="email" class="form-control" />
-      <div *ngIf="clientForm.get('client_email')?.invalid && (clientForm.get('client_email')?.dirty || clientForm.get('client_email')?.touched)" class="error">
-        Valid Client Email is required.
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="client_address">Client Address</label>
-      <input id="client_address" formControlName="client_address" type="text" class="form-control" />
-    </div>
-  
-    <div class="form-group">
-      <label for="client_resident">Client Resident</label>
-      <input id="client_resident" formControlName="client_resident" type="text" class="form-control" />
-    </div>
-  
-    <!-- Toggle Switches -->
-    <div class="form-group form-check">
-      <input id="Is_customer" formControlName="Is_customer" type="checkbox" class="form-check-input" />
-      <label for="Is_customer" class="form-check-label">Is Customer</label>
-    </div>
-  
-    <div class="form-group form-check">
-      <input id="Is_vendor" formControlName="Is_vendor" type="checkbox" class="form-check-input" />
-      <label for="Is_vendor" class="form-check-label">Is Vendor</label>
-    </div>
-  
-    <!-- Branches -->
-    <div formArrayName="branches">
-      <div *ngFor="let branch of branches.controls; let i = index" [formGroupName]="i" class="branch-form-group">
-        <h3>Branch {{i + 1}}</h3>
-        <div class="form-group">
-          <label for="branch_no">Branch No</label>
-          <input id="branch_no" formControlName="branch_no" type="number" class="form-control" />
-        </div>
-  
-        <div class="form-group">
-          <label for="branch_name">Branch Name</label>
-          <input id="branch_name" formControlName="branch_name" type="text" class="form-control" />
-        </div>
-  
-        <div class="form-group">
-          <label for="branch_phone">Branch Phone</label>
-          <input id="branch_phone" formControlName="branch_phone" type="text" class="form-control" />
-        </div>
-  
-        <div class="form-group">
-          <label for="branch_mobile">Branch Mobile</label>
-          <input id="branch_mobile" formControlName="branch_mobile" type="text" class="form-control" />
-        </div>
-  
-        <div class="form-group">
-          <label for="branch_manager">Branch Manager</label>
-          <input id="branch_manager" formControlName="branch_manager" type="text" class="form-control" />
-        </div>
-  
-        <button type="button" (click)="removeBranch(i)" class="btn btn-danger">Remove Branch</button>
-      </div>
-    </div>
-    <button type="button" (click)="addBranch()" class="btn btn-primary">Add Branch</button>
-  
-    <!-- Cars -->
-    <div formArrayName="cars">
-      <div *ngFor="let car of cars.controls; let i = index" [formGroupName]="i" class="car-form-group">
-        <h3>Car {{i + 1}}</h3>
-        <div class="form-group">
-          <label for="No">Car No</label>
-          <input id="No" formControlName="No" type="number" class="form-control" />
-        </div>
-  
-        <div class="form-group">
-          <label for="CarName">Car Name</label>
-          <input id="CarName" formControlName="CarName" type="text" class="form-control" />
-        </div>
-  
-        <div class="form-group">
-          <label for="ChassisNo">Chassis No</label>
-          <input id="ChassisNo" formControlName="ChassisNo" type="text" class="form-control" />
-        </div>
-  
-        <div class="form-group">
-          <label for="PlateNo">Plate No</label>
-          <input id="PlateNo" formControlName="PlateNo" type="text" class="form-control" />
-        </div>
-  
-        <div class="form-group">
-          <label for="Kilometres">Kilometres</label>
-          <input id="Kilometres" formControlName="Kilometres" type="number" class="form-control" />
-        </div>
-  
-        <button type="button" (click)="removeCar(i)" class="btn btn-danger">Remove Car</button>
-      </div>
-    </div>
-    <button type="button" (click)="addCar()" class="btn btn-primary">Add Car</button>
-  
-    <!-- Submit Button -->
-    <div class="form-group">
-      <button type="submit" class="btn btn-success" [disabled]="clientForm.invalid">Submit</button>
-    </div>
-  
-  </form>
-  
-  
+  </div>
+
+  <button type="submit" [disabled]="clientForm.invalid">Submit</button>
+</form>
+
 <!-- <form (ngSubmit)="addClient()">
     <div class="row mb-4 mt-4">
         <div class="col">

@@ -11,6 +11,8 @@ import { ViewClientComponent } from './Components/Clients/view-client/view-clien
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { TokenInterceptorInterceptor } from './Interceptor/token-interceptor.interceptor';
+import { ViewExpensesComponent } from './Components/Expenses/view-expenses/view-expenses.component';
+import { AddExpensesComponent } from './Components/Expenses/add-expenses/add-expenses.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { TokenInterceptorInterceptor } from './Interceptor/token-interceptor.int
     FooterComponent,
     AddClientComponent,
     ViewClientComponent,
-    LoginComponent
+    LoginComponent,
+    ViewExpensesComponent,
+    AddExpensesComponent
   ],
   imports: [
     BrowserModule,

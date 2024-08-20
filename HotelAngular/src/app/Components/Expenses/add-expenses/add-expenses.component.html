@@ -1,0 +1,34 @@
+<!-- Form for Starting Sessions -->
+<form [formGroup]="SRootForm" (ngSubmit)="onStartSubmit()">
+    <h1>Start Sessions</h1>
+    
+    <div>
+      <label for="MachineName">Machine Name</label>
+      <input id="MachineName" formControlName="MachineName" type="text" name="MachineName" />
+    </div>
+    
+    <div>
+      <label for="OpenBalance">Open Balance</label>
+      <input id="OpenBalance" formControlName="OpenBalance" type="number" name="OpenBalance" />
+    </div>
+    
+    <button type="submit">Submit</button>
+  </form>
+  
+  <!-- Form for Ending Sessions -->
+  <form [formGroup]="rootForm" (ngSubmit)="onSubmit()">
+    <h1>End Sessions</h1>
+    
+    <div>
+      <label for="UserActualBalance">User Actual Balance</label>
+      <input id="UserActualBalance" formControlName="UserActualBalance" type="number" name="UserActualBalance" />
+    </div>
+    
+    <div>
+      <label for="TakenAmmount">Taken Amount</label>
+      <input id="TakenAmmount" formControlName="TakenAmmount" type="number" name="TakenAmmount" />
+    </div>
+    
+    <button type="submit">Submit</button>
+  </form>
+  

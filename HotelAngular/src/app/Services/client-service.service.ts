@@ -10,7 +10,12 @@ import { AddClient } from '../Models/add-client';
   providedIn: 'root'
 })
 export class ClientServiceService {
-  httpOptions: any;
+
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  });
+
   constructor(private http: HttpClient,
     private auth: AuthLoginService
   ) {}
@@ -56,11 +61,19 @@ export class ClientServiceService {
   //     catchError(this.handleError)
   //   )
   // }
-  addClient(client: AddClient): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+  // addClient(client: AddClient): Observable<any> {
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json'
+  //   });
     
-    return this.http.post(`http://192.168.1.150:7000/api/clients`, client, { headers });
+  //   return this.http.post(`http://192.168.1.150:7000/api/clients`, client, { headers });
+  // }
+
+  addClient(client: AddClient): Observable<any> {
+    return this.http.post(`${environment.baseApi}${environment.clientApi}`, client, { headers: this.headers });
+  }
+
+  getBranches(): Observable<any[]> {
+    return this.http.get<any[]>('http://192.168.1.150:7000/api/dropdown/branches');
   }
 }
